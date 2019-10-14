@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>waterfall</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			a {
+				text-decoration: none;
+				outline: none;
+				border: none;
+			}
+			
+			img {
+				zoom: 1;
+				border: none;
+			}
+			/*----------waterfall start---------------*/
+			
+			.zyp-waterfall-box {
+				width: 90%;
+				padding: 20px 5%;
+				overflow: hidden;
+				z-index: 1;
+			}
+			
+			.zyp-waterfall-box .waterfall-column {
+				width: 29.333%;
+				margin: 10px 2%;
+				float: left;
+				overflow: hidden;
+				color: #080808;
+			}
+			
+			.zyp-waterfall-box .waterfall-column .waterfall-items {
+				width: 100%;
+			}
+			
+			.zyp-waterfall-box .waterfall-column .waterfall-items img {
+				width: 100%;
+			}
+			
+			.zyp-waterfall-box .waterfall-column .waterfall-items p {
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				text-align: center;
+			}
+			/*----------waterfall end---------------*/
+			/*---------loading 模块start------------*/
+			
+			.loading {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: rgba(0, 0, 0, .8);
+				z-index: 10;
+				overflow: hidden;
+			}
+			
+			.loading p {
+				position: absolute;
+				color: #fff;
+				text-align: center;
+				width: 100%;
+				top: 48%;
+				font-size: 20px;
+			}
+			
+			.loading p span {
+				animation: dance .5s alternate infinite;
+				-webkit-animation: dance .5s alternate infinite;
+				display: inline-block;
+				position: absolute;
+			}
+			
+			.loading p span:first-child {
+				animation: dance .5s 0 alternate infinite;
+				-webkit-animation: dance .5s alternate infinite;
+				left: 30%;
+			}
+			
+			.loading p span:nth-child(2) {
+				animation: dance .5s .2s alternate infinite;
+				-webkit-animation: dance .5s .2s alternate infinite;
+				left: 34%;
+			}
+			
+			.loading p span:nth-child(3) {
+				animation: dance .5s .4s alternate infinite;
+				-webkit-animation: dance .5s .4s alternate infinite;
+				left: 38%;
+			}
+			
+			.loading p span:nth-child(4) {
+				animation: dance .5s .6s alternate infinite;
+				-webkit-animation: dance .5s .6s alternate infinite;
+				left: 42%;
+			}
+			
+			.loading p span:nth-child(5) {
+				animation: dance .5s .8s alternate infinite;
+				-webkit-animation: dance .5s .8s alternate infinite;
+				left: 46%;
+			}
+			
+			.loading p span:nth-child(6) {
+				animation: dance .5s 1s alternate infinite;
+				-webkit-animation: dance .5s 1s alternate infinite;
+				left: 50%;
+			}
+			
+			.loading p span:nth-child(7) {
+				animation: dance .5s 1.2s alternate infinite;
+				-webkit-animation: dance .5s 1.2s alternate infinite;
+				left: 54%;
+			}
+			
+			.loading p span:nth-child(8) {
+				animation: dance .5s 1.4s alternate infinite;
+				-webkit-animation: dance .5s 1.4s alternate infinite;
+				left: 58%;
+			}
+			
+			.loading p span:nth-child(9) {
+				animation: dance .5s 1.6s alternate infinite;
+				-webkit-animation: dance .5s 1.6s alternate infinite;
+				left: 62%;
+			}
+			
+			.loading p span:nth-child(10) {
+				animation: dance .5s 1.8s alternate infinite;
+				-webkit-animation: dance .5s 1.8s alternate infinite;
+				left: 66%;
+			}
+			
+			@keyframes dance {
+				from {
+					margin-top: 0px;
+				}
+				to {
+					margin-top: 30px;
+				}
+			}
+			
+			@-webkit-keyframes dance {
+				from {
+					margin-top: 0px;
+				}
+				to {
+					margin-top: -30px;
+				}
+			}
+			/*---------loading 模块end------------*/
+		</style>
+	</head>
+
+	<body>
+		<div class="zyp-waterfall-box">
+		</div>
+		<div class="test">
+			<!--装载加载图片的临时空间-->
+		</div>
+		<div class="loading">
+			<p>
+				<span>L</span>
+				<span>O</span>
+				<span>A</span>
+				<span>D</span>
+				<span>I</span>
+				<span>N</span>
+				<span>G</span>
+				<span>.</span>
+				<span>.</span>
+				<span>.</span>
+			</p>
+		</div>
+		<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			/*
+			 * created by zyp on 2017/1/22
+			 */
+			var zypWaterFall = {
+				//初始化数据
+				dataInit: {
+					box: $('.zyp-waterfall-box'),
+					waterfallNum: 3,
+					api: 'json/demo1.json'
+				},
+				//请求数据
+				getJson: function() {
+					var _this = this;
+					$.ajax({
+						type: "GET",
+						url: _this.dataInit.api,
+						data: {},
+						dataType: "json",
+						success: function(data) {
+							console.log(data);
+							var html = '',
+								imgList = [];
+							for(var i = 0; i < data.body.waterfallList.length; i++) {
+								var obj = data.body.waterfallList[i];
+								html += '<a class="waterfall-items" href="' + obj.href + '">';
+								html += '<img src="' + obj.imgSrc + '"/>';
+								html += '<p>' + obj.title + '</p>';
+								html += '</a>';
+								imgList.push(obj.imgSrc);
+							}
+							//loading部分，图片加载完成在让他们出现
+							var percent = 0;
+							$('body').css({
+								'overflow': 'hidden'
+							}) //PC端设置overflow：hidden；防止页面滚动
+							for(var i = 0; i < imgList.length; i++) {
+								var img = new Image();
+								//onload加载是异步的 并且IE的图片总是从缓存文件里去拿，这就造成load方法根本就不执行，只有是新图片才会走load。
+								img.onload = function() {
+										percent += 1;
+										if(percent == imgList.length) {
+											setTimeout(function() {
+												$('.test').html(html);
+												_this.addImg('.test .waterfall-items');
+												$('.loading').fadeOut();
+												$('body').css('overflow', 'visible'); //PC站
+											}, 1000)
+										}
+									}
+									//将img.src放后面是为了兼容ie
+								img.src = imgList[i];
+							}
+
+						},
+						error: function(e) {
+							console.log(e);
+						}
+					})
+				},
+				//创建waterfallNum列容器
+				createList: function() {
+					var html = '';
+					for(var i = 1; i <= this.dataInit.waterfallNum; i++) {
+						html = '<div class="columnList' + i + ' waterfall-column"></div>';
+						this.dataInit.box.append(html);
+					}
+				},
+				//将图片添加进容器
+				addImg: function(obj) {
+					var imgNum = $(obj).length,
+						num;
+					for(var i = 0; i < imgNum; i++) {
+						num = this.judgeHeight();
+						$('.columnList' + num).append($(obj)[0]);
+					}
+				},
+				//判断几个容器的高度,返回最低高度容器
+				judgeHeight: function() {
+					var n = 1;
+					for(var i = 2; i <= this.dataInit.box.find('div').length; i++) {
+						if($('.columnList' + n).height() > $('.columnList' + i).height()) {
+							n = i;
+						}
+					}
+					return n;
+				},
+				//监听事件 当页面滚动到底部时加载
+				eventInit: function() {
+					var _this = this;
+					$(window).scroll(function() {
+						if($(document).height() == $(window).height() + $(window).scrollTop()) {
+							$('.loading').fadeIn();
+							_this.getJson();
+						}
+					})
+				},
+				init: function() {
+					this.createList();
+					this.getJson();
+					this.eventInit();
+				}
+			}
+			zypWaterFall.init();
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			font-family: "微软雅黑";
+			font-size: 16px;
+		}
+		
+		a {
+			line-height: 1;
+		}
+		
+		.scroll-box {
+			border: 1px solid #ccc;
+			width: 400px;
+			height: 30px;
+			position: relative;
+			margin: 0 auto;
+		}
+		
+		.scroll-box .left,
+		.scroll-box .right {
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			top: 50%;
+			margin-top: -15px;
+			cursor: pointer;
+			text-decoration: none;
+			text-align: center;
+			line-height: 30px;
+		}
+		
+		.scroll-box .left {
+			left: 10px;
+		}
+		
+		.scroll-box .right {
+			right: 10px;
+		}
+		
+		.scroll-content {
+			width: 300px;
+			height: 20px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-top: -10px;
+			margin-left: -150px;
+			overflow: hidden;
+		}
+		
+		.scroll-content .scroll-a {
+			width: 600px;
+			height: 20px;
+			position: absolute;
+		}
+		
+		.scroll-content .scroll-a a {
+			display: inline;
+			width: 100px;
+			float: left;
+			text-align: center;
+			line-height: 20px;
+		}
+	</style>
+	<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		window.onload = function() {
+			
+			function clickEvent() {
+				var canClick = true;
+				$('.left').click(function() {
+					if(canClick) {
+						canClick = false;
+						$('.scroll-a>a:last-child').insertBefore($('.scroll-a>a:first-child'));
+						$('.scroll-a').css('left', '-100px');
+						$(".scroll-a").stop().animate({
+							left: "0px"
+						}, 500, function() {
+							console.log('left');
+							canClick = true;
+						});
+					}
+				});
+				$('.right').click(function() {
+					if(canClick) {
+						canClick = false;
+						$(".scroll-a").stop().animate({
+							left: "-100px"
+						}, 500, function() {
+							$('.scroll-a>a:first-child').insertAfter($('.scroll-a>a:last-child'));
+							$('.scroll-a').css('left', '0px');
+							console.log('right');
+							canClick = true;
+						});
+					}
+				})
+			}
+			clickEvent();
+		}
+	</script>
+
+	<body>
+		<div class="scroll-box">
+			<div class="left">&lt;</div>
+			<div class="right">&gt;</div>
+			<div class="scroll-content">
+				<div class="scroll-a">
+					<a href="javascript:;">1</a>
+					<a href="javascript:;">2</a>
+					<a href="javascript:;">3</a>
+					<a href="javascript:;">4</a>
+					<a href="javascript:;">5</a>
+					<a href="javascript:;">6</a>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

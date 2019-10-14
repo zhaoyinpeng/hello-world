@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+		<style type="text/css">
+			*{
+				margin:0;
+				padding:0;
+			}
+			body{
+				position:relative;
+			}
+			#div1 {
+				margin:100px auto;
+				text-align: center;
+				background: #abcdef;
+				width: 200px;
+				height: 20px;
+				line-height: 20px;
+			}
+			#div1 span{
+				display: inline-block;
+			}
+			@keyframes move{
+				0% {
+					color:#fff;
+					transform:translate(0px,0px);
+					-ms-transform:translate(0px,0px);
+					-moz-transform:translate(0px,0px); 
+					-webkit-transform:translate(0px,0px); 
+					-o-transform:translate(0px,0px);
+				}
+				100% {
+					color:#afb;
+					transform:translate(0px,-15px);
+					-ms-transform:translate(0px,-15px); 
+					-moz-transform:translate(0px,-15px); 
+					-webkit-transform:translate(0px,-15px); 
+					-o-transform:translate(0px,-15px); 
+				}
+			}
+			@-webkit-keyframes move {
+				0% {
+					color:#fff;
+					transform:translate(0px,0px);
+					-ms-transform:translate(0px,0px);
+					-moz-transform:translate(0px,0px); 
+					-webkit-transform:translate(0px,0px); 
+					-o-transform:translate(0px,0px);
+				}
+				100% {
+					color:#afb;
+					transform:translate(0px,-15px);
+					-ms-transform:translate(0px,-15px); 
+					-moz-transform:translate(0px,-15px); 
+					-webkit-transform:translate(0px,-15px); 
+					-o-transform:translate(0px,-15px); 
+				}
+			}
+			
+			#div1 span:nth-child(1) {
+				/*-webkit-animation: .5s move alternate infinite;*/
+				/*animation: move 5s linear 2s infinite alternate;*/
+				animation-name: move;
+				animation-duration: .5s;
+				/*animation-timing-function: linear;*/
+				animation-delay: 0s;/*默认*/
+				animation-iteration-count: infinite;
+				animation-direction: alternate;
+				animation-play-state: running;/*默认*/
+				
+				
+				/* Safari 和 Chrome:  红米手机上一半需要一半不要*/
+				-webkit-animation: move .5s 0s infinite alternate;
+				/* Firefox: */
+				-moz-animation: move .5s 0s infinite alternate;
+				/* Opera: */
+				-o-animation: move .5s 0s infinite alternate;
+			}
+			
+			#div1 span:nth-child(2) {
+				/*-webkit-animation: .5s .1s move alternate infinite;*/
+				-webkit-animation: move .5s .1s infinite alternate;
+			}
+			
+			#div1 span:nth-child(3) {
+				-webkit-animation: .5s .2s move alternate infinite;
+			}
+			
+			#div1 span:nth-child(4) {
+				-webkit-animation: .5s .3s move alternate infinite;
+			}
+			
+			#div1 span:nth-child(5) {
+				-webkit-animation: .5s .4s move alternate infinite;
+			}
+			
+			#div1 span:nth-child(6) {
+				-webkit-animation: .5s .5s move alternate infinite;
+			}
+			
+			#div1 span:nth-child(7) {
+				-webkit-animation: .5s .6s move alternate infinite;
+			}
+			
+			#div1 span:nth-child(8) {
+				-webkit-animation: .5s .7s move alternate infinite;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="div1">
+			<span>正</span> <span>在</span> <span>加</span> <span>载</span> <span>中</span><span>.</span><span>.</span><span>.</span>
+
+		</div>
+		<p>动画控制绝对定位top值，在移动端里不如transform:translate()</p>
+		<style type="text/css">
+			.div2 {
+				margin:100px auto;
+				text-align: center;
+				background: #abcdef;
+				width: 200px;
+				height: 20px;
+				line-height: 20px;
+				position:relative;
+			}
+			.div2 span{
+				display: inline-block;
+				position:absolute;
+				top:0;
+			}
+			.div2 span:nth-child(1){
+				left:50px;
+				-webkit-animation: top .5s infinite alternate;
+			}
+			.div2 span:nth-child(2){
+				left:70px;
+				-webkit-animation: top .5s .1s infinite alternate;
+			}
+			.div2 span:nth-child(3){
+				left:90px;
+				-webkit-animation: top .5s .2s infinite alternate;
+			}
+			.div2 span:nth-child(4){
+				left:110px;
+				-webkit-animation: top .5s .3s infinite alternate;
+			}
+			.div2 span:nth-child(5){
+				left:130px;
+				-webkit-animation: top .5s .4s infinite alternate;
+			}
+			@-webkit-keyframes top{
+				0% {
+					color:#fff;
+					top:0;
+				}
+				100% {
+					color:#afb;
+					top:-15px;
+				}
+			}
+		</style>
+		<div class="div2">
+			<span>正</span> <span>在</span> <span>加</span> <span>载</span> <span>中</span>
+		</div>
+	</body>
+	<html>

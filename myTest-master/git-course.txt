@@ -1,0 +1,7 @@
+1.在项目根目录右键点击Git Bash Here
+2.输入git init （会出现.git文件）
+3.输入git add . (.为需要上传文件名称)
+4.输入$ git commit -m ‘注释’（注释随便写）
+5.去github上创建自己的Repository 然后得到git地址（例如：git@github.com:zhaoyinpeng/myTest.git）
+6.输入git remote add origin *（重点来了，将本地的仓库关联到github上,*为你的git地址）
+7.输入git push -u origin master (上传代码到github远程仓库)
