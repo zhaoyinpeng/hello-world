@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="http://lib.sinaapp.com/js/jquery/3.1.0/jquery-3.1.0.min.js"></script>
+  <script>
+    $.get('https://chongzhi.jd.com/json/order/search_searchPhone.action?mobile=18844444444',function(data){
+      console.log(data)
+    })
+    //第一种方法后端偷跨域信息
+    //代理跨域 后台做
+
+    //第二种方法
+    //CORS跨域 跨站资源共享策略
+    // 后台设置 Access-Control-Allow-Origin
+    // 预检请求 在发送delete请求时 其实是会发送option请求进行预检
+    // option就是预检请求
+  </script>
+</body>
+</html>
