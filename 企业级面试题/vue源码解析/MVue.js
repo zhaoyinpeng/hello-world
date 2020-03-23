@@ -133,6 +133,7 @@ class MVue {
     this.$data = options.data;
     if (this.$el) {
       //1.实现数据观察者
+      new Observer(this.$data)
       //2.实现指令解析器
       new Compile(this.$el, this)
     }

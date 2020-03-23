@@ -109,3 +109,13 @@ getName(); //!4 //1
 new Foo.getName(); //!3 //2
 new Foo().getName(); //3
 new new Foo().getName(); //!报错 //3
+
+
+//相当于
+var getName = undefined;
+function getName() {
+  console.log("5");
+}
+getName = function() {
+  console.log("4");
+};
