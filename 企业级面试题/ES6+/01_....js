@@ -9,7 +9,7 @@ function fun(a, ...b) {
 }
 fun(1, 2, 3, 4)
 
-// 2
+// 2 强制展开这个数组
 let arr = [2, 3, 4, 5, 234, 34, 123]
 console.log(Math.max.apply(null, arr))
 console.log(Math.max(...arr))
