@@ -4,6 +4,7 @@
   </div>
 </template>
 <script>
+import FunctionMsg from 'zyp_npmtest'
 export default {
   name: '',
   components: {},
@@ -17,8 +18,12 @@ export default {
   },
   computed: {},
   watch: {},
-  created() {},
-  mounted() {},
+  created() {
+    console.log('请求方法')
+    console.log(FunctionMsg)
+    // FunctionMsg.showMsg()
+  },
+  mounted() { },
   methods: {}
 }
 </script>
