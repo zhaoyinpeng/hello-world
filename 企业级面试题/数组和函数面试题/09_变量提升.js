@@ -47,6 +47,14 @@ function a() { }
 var b = function () { };
 console.log(a)//1
 
+//!!!!做错了
+console.log(a);//function a(){}
+console.log(b);//undefined
+function a() { }
+var a = 1;
+var b = function () { };
+console.log(a)//1
+
 var a = 10;
 (function () {
   console.log(a) //undefined
@@ -119,3 +127,42 @@ function getName() {
 getName = function() {
   console.log("4");
 };
+
+//!!!!做错
+var getName = function() {
+  console.log("4");
+};
+function getName(){
+  console.log("5");
+}
+getName() //4
+
+
+function Foo() {
+  getName = function(){
+      console.log("1");
+  };
+  return this;
+}
+Foo.getName = function() {
+  console.log("2");
+};
+
+Foo.prototype.getName = function(){
+  console.log("3");
+};
+
+var getName = function() {
+  console.log("4");
+};
+function getName(){
+  console.log("5");
+}
+
+Foo.getName();//2
+getName();//4
+Foo().getName();// 1
+getName(); //1
+new Foo.getName(); //2
+new Foo().getName(); //1
+new new new Foo().getName(); //1

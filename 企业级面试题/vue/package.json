@@ -14,5 +14,8 @@
     "vue-loader": "^15.9.0",
     "vue-template-compiler": "^2.6.11",
     "webpack": "^4.42.0"
+  },
+  "dependencies": {
+    "zyp_npmtest": "^1.0.1"
   }
 }
