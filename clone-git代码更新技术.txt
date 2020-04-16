@@ -1,26 +1,26 @@
-1.ËæÒâÎÄ¼þ¼ÐÀï£¬ÓÒ¼üµã»÷Git Bash Here.
-2.ÊäÈëgit clone https://github.com/xxx/xxx.git  /*ÄãÒª¿ËÂ¡µÄgitµØÖ·*/
-3.ÉÏÒ»²½½áÊøºó£¬»á¶àÒ»¸öcloneÏÂÀ´µÄÎÄ¼þ£¬È»ºóÓÃgit´úÂë½øÈëcloneµÄÎÄ¼þ¼Ð ÊäÈëcd XXX /*ÄãÒª¿ËÂ¡ÎÄ¼þ¼ÐµÄÃû³Æ*/
-4.ÉÏÒ»²½½áÊøºó£¬½øÈëcloneµÄÎÄ¼þ¼Ð£¬È»ºóÓÐÈçÏÂÁ½ÖÖÐÞ¸Ä´úÂë·½Ê½
-   (1).´´½¨·ÖÖ§ºÍºÏ²¢·ÖÖ§
-	#git branch local	/*´´½¨±¾µØ·ÖÖ§£¬Ã»ÓÐÔÚgithub·þÎñÆ÷ÉÏ´´½¨·ÖÖ§*/
-	#git checkout local	/*ÇÐ»»µ½local·ÖÖ§*/
-	½ÓÏÂÀ´ÔÚlocal·ÖÖ§ÉÏ½øÐÐ¿ª·¢£¬¿ª·¢Íê³ÉºóÓëmaster·ÖÖ§ºÏ²¢
-	#git checkout master	/*ÇÐ»»µ½master·ÖÖ§*/
-	#git merge local	/*ºÏ²¢masterÓëlocal·ÖÖ§*/
-	#git branch -d local	/*ºÏ²¢Íê³ÉºóÉ¾³ýlocal·ÖÖ§*/
-   (2).Ö±½ÓÐÞ¸Ä´úÂë²»ÓÃ´´½¨·ÖÖ§ºÍºÏ²¢·ÖÖ§
-5.Ìí¼ÓÐÂÎÄ¼þµ½°æ±¾¿â
-    (1).Ìí¼Óµ¥¸öÎÄ¼þ¡£ #git add xxx.txt    
-    (2).Ìí¼ÓËùÓÐtxtÎÄ¼þ¡£ #git add *.txt
-    (3).Ìí¼ÓËùÓÐÎÄ¼þ¡£ #git add .
-6.½ÓÏÂÀ´Ìá½»
-    (1).Ìá½»ËùÓÐÐÞ¸Ä¡£ #git commit -m "xxxxxx" -a   
-    (2).Ìí¼Óµ¥¸öÎÄ¼þ¡£ #git commit -m "xxxxx.txt" xxx.txt
-    (3).Ôö²¹Ìá½»¡£ #git commit -C head -a --amend
-7.ÊäÈëgit pull»ñÈ¡ÏÖÔÚmasterµÄ×îÐÂ¸ü¸Ä¡£ÒòÎª¶ÔÎÊ¼Û×öÁËÐÞ¸Ä
-8.×îºó½«ÐÞ¸ÄÄÚÈÝÌá½»µ½github·þÎñÆ÷ÉÏ¡£
-    (1).ÊäÈë git push origin master  /*×¢Òâ ÕâÀïÄ¬ÈÏÌá½»µ½ÄãµÄcloneµÄÎÄ¼þµØÖ·ÉÏ*/	
-    (2).ÊäÈë git remote add origin git@github.com:xxx/xxx.git  /*×¢Òâ ÕâÀï¿ÉÒÔÑ¡ÔñÄãÒªÌá½»µÄµØÖ·*/
-9.½áÊø the end.
+1.éšæ„æ–‡ä»¶å¤¹é‡Œï¼Œå³é”®ç‚¹å‡»Git Bash Here.
+2.è¾“å…¥git clone https://github.com/xxx/xxx.git  /*ä½ è¦å…‹éš†çš„gitåœ°å€*/
+3.ä¸Šä¸€æ­¥ç»“æŸåŽï¼Œä¼šå¤šä¸€ä¸ªcloneä¸‹æ¥çš„æ–‡ä»¶ï¼Œç„¶åŽç”¨gitä»£ç è¿›å…¥cloneçš„æ–‡ä»¶å¤¹ è¾“å…¥cd XXX /*ä½ è¦å…‹éš†æ–‡ä»¶å¤¹çš„åç§°*/
+4.ä¸Šä¸€æ­¥ç»“æŸåŽï¼Œè¿›å…¥cloneçš„æ–‡ä»¶å¤¹ï¼Œç„¶åŽæœ‰å¦‚ä¸‹ä¸¤ç§ä¿®æ”¹ä»£ç æ–¹å¼
+   (1).åˆ›å»ºåˆ†æ”¯å’Œåˆå¹¶åˆ†æ”¯
+	#git branch local	/*åˆ›å»ºæœ¬åœ°åˆ†æ”¯ï¼Œæ²¡æœ‰åœ¨githubæœåŠ¡å™¨ä¸Šåˆ›å»ºåˆ†æ”¯*/
+	#git checkout local	/*åˆ‡æ¢åˆ°localåˆ†æ”¯*/
+	æŽ¥ä¸‹æ¥åœ¨localåˆ†æ”¯ä¸Šè¿›è¡Œå¼€å‘ï¼Œå¼€å‘å®ŒæˆåŽä¸Žmasteråˆ†æ”¯åˆå¹¶
+	#git checkout master	/*åˆ‡æ¢åˆ°masteråˆ†æ”¯*/
+	#git merge local	/*åˆå¹¶masterä¸Žlocalåˆ†æ”¯*/
+	#git branch -d local	/*åˆå¹¶å®ŒæˆåŽåˆ é™¤localåˆ†æ”¯*/
+   (2).ç›´æŽ¥ä¿®æ”¹ä»£ç ä¸ç”¨åˆ›å»ºåˆ†æ”¯å’Œåˆå¹¶åˆ†æ”¯
+5.æ·»åŠ æ–°æ–‡ä»¶åˆ°ç‰ˆæœ¬åº“
+    (1).æ·»åŠ å•ä¸ªæ–‡ä»¶ã€‚ #git add xxx.txt    
+    (2).æ·»åŠ æ‰€æœ‰txtæ–‡ä»¶ã€‚ #git add *.txt
+    (3).æ·»åŠ æ‰€æœ‰æ–‡ä»¶ã€‚ #git add .
+6.æŽ¥ä¸‹æ¥æäº¤
+    (1).æäº¤æ‰€æœ‰ä¿®æ”¹ã€‚ #git commit -m "xxxxxx" -a   
+    (2).æ·»åŠ å•ä¸ªæ–‡ä»¶ã€‚ #git commit -m "xxxxx.txt" xxx.txt
+    (3).å¢žè¡¥æäº¤ã€‚ #git commit -C head -a --amend
+7.è¾“å…¥git pullèŽ·å–çŽ°åœ¨masterçš„æœ€æ–°æ›´æ”¹ã€‚å› ä¸ºå¯¹é—®ä»·åšäº†ä¿®æ”¹
+8.æœ€åŽå°†ä¿®æ”¹å†…å®¹æäº¤åˆ°githubæœåŠ¡å™¨ä¸Šã€‚
+    (1).è¾“å…¥ git push origin master  /*æ³¨æ„ è¿™é‡Œé»˜è®¤æäº¤åˆ°ä½ çš„cloneçš„æ–‡ä»¶åœ°å€ä¸Š*/	
+    (2).è¾“å…¥ git remote add origin git@github.com:xxx/xxx.git  /*æ³¨æ„ è¿™é‡Œå¯ä»¥é€‰æ‹©ä½ è¦æäº¤çš„åœ°å€*/
+9.ç»“æŸ the end.
    

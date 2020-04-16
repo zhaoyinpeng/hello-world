@@ -1,7 +1,7 @@
-1.ÔÚÏîÄ¿¸ùÄ¿Â¼ÓÒ¼üµã»÷Git Bash Here
-2.ÊäÈëgit init £¨»á³öÏÖ.gitÎÄ¼ş£©
-3.ÊäÈëgit add . (.ÎªĞèÒªÉÏ´«ÎÄ¼şÃû³Æ)
-4.ÊäÈë$ git commit -m ¡®×¢ÊÍ¡¯£¨×¢ÊÍËæ±ãĞ´£©
-5.È¥githubÉÏ´´½¨×Ô¼ºµÄRepository È»ºóµÃµ½gitµØÖ·£¨ÀıÈç£ºgit@github.com:zhaoyinpeng/myTest.git£©
-6.ÊäÈëgit remote add origin *£¨ÖØµãÀ´ÁË£¬½«±¾µØµÄ²Ö¿â¹ØÁªµ½githubÉÏ,*ÎªÄãµÄgitµØÖ·£©
-7.ÊäÈëgit push -u origin master (ÉÏ´«´úÂëµ½githubÔ¶³Ì²Ö¿â)
+1.åœ¨é¡¹ç›®æ ¹ç›®å½•å³é”®ç‚¹å‡»Git Bash Here
+2.è¾“å…¥git init ï¼ˆä¼šå‡ºç°.gitæ–‡ä»¶ï¼‰
+3.è¾“å…¥git add . (.ä¸ºéœ€è¦ä¸Šä¼ æ–‡ä»¶åç§°)
+4.è¾“å…¥$ git commit -m â€˜æ³¨é‡Šâ€™ï¼ˆæ³¨é‡Šéšä¾¿å†™ï¼‰
+5.å»githubä¸Šåˆ›å»ºè‡ªå·±çš„Repository ç„¶åå¾—åˆ°gitåœ°å€ï¼ˆä¾‹å¦‚ï¼šgit@github.com:zhaoyinpeng/myTest.gitï¼‰
+6.è¾“å…¥git remote add origin *ï¼ˆé‡ç‚¹æ¥äº†ï¼Œå°†æœ¬åœ°çš„ä»“åº“å…³è”åˆ°githubä¸Š,*ä¸ºä½ çš„gitåœ°å€ï¼‰
+7.è¾“å…¥git push -u origin master (ä¸Šä¼ ä»£ç åˆ°githubè¿œç¨‹ä»“åº“)

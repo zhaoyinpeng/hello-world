@@ -1,67 +1,67 @@
-��������ʦ�����⣺
+初级工程师面试题：
 html
-���廯��ǩ����Щ��������ʲô��< title></title> <header></header><nav></nav><main></main><article></article> <section></section> <footer></footer><address></address><del></del><code></code>1 �����ɷ����ԣ�2 SEO�����������Ż�����3 �ṹ����������ά����
-ie6-8��֧�����廯��ǩ��ô�죬��jsdocument.createElement(��header��); document.createElement(��nav��);
-document.createElement(��footer��); 
-<meta> ��ǩ����
-���ںͿ鼶Ԫ�أ�������ʲô
-html5������ 
-���ڻ滭�� canvas Ԫ��
-����ý��طŵ� video �� audio Ԫ��
-�Ա������ߴ洢�ĸ��õ�֧��
-�µ���������Ԫ�أ����� article��footer��header��nav��section
-�µı����ؼ������� calendar��date��time��email��url��search
-svg��canvas����
+语义化标签有哪些，作用是什么。< title></title> <header></header><nav></nav><main></main><article></article> <section></section> <footer></footer><address></address><del></del><code></code>1 提升可访问性；2 SEO（搜索引擎优化）；3 结构清晰，利于维护；
+ie6-8不支持语义化标签怎么办，用jsdocument.createElement(“header”); document.createElement(“nav”);
+document.createElement(“footer”); 
+<meta> 标签作用
+行内和块级元素，区别是什么
+html5新特性 
+用于绘画的 canvas 元素
+用于媒介回放的 video 和 audio 元素
+对本地离线存储的更好的支持
+新的特殊内容元素，比如 article、footer、header、nav、section
+新的表单控件，比如 calendar、date、time、email、url、search
+svg和canvas区别
 canvas
-��֧���¼�������
-�����ı���Ⱦ����
-�ܹ��� .png �� .jpg ��ʽ������ͼ��
-���ʺ�ͼ���ܼ��͵���Ϸ�����е��������ᱻƵ���ػ�
-�����ֱ���
+不支持事件处理器
+弱的文本渲染能力
+能够以 .png 或 .jpg 格式保存结果图像
+最适合图像密集型的游戏，其中的许多对象会被频繁重绘
+依赖分辨率
 SVG
-�������ֱ���
-֧���¼�������
-���ʺϴ��д�����Ⱦ�����Ӧ�ó��򣨱���ȸ��ͼ��
-���Ӷȸ߻������Ⱦ�ٶȣ��κι���ʹ�� DOM ��Ӧ�ö����죩
-���ʺ���ϷӦ��
+不依赖分辨率
+支持事件处理器
+最适合带有大型渲染区域的应用程序（比如谷歌地图）
+复杂度高会减慢渲染速度（任何过度使用 DOM 的应用都不快）
+不适合游戏应用
 2.css
-css������
- CSS3ʵ��Բ�ǣ�border-radius������Ӱ��box-shadow���������ּ���Ч��text-shadow���������Խ��䣨gradient������ת��transform����transform:rotate(9deg) scale(0.85,0.90) translate(0px,-30px) skew(-9deg,0deg);// ��ת,����,��λ,��б����CSS3��Ψһ�����αԪ���� ::selection.ý���ѯ���������֣�border-image
-css��ģ��
-CSS3�п���ͨ��box-sizing ��ָ����ģ�ͣ�����ָ��Ϊcontent-box��border-box���������Ǽ�����Ӵ�С�ķ�ʽ�ͷ����˸ı䡣
-���Էֳ����������
-1��box-sizing: border-box  ���㷽ʽΪcontent = width �C border - padding
-2��box-sizing: content-box  ���㷽ʽΪcontent = width��Ĭ�ϣ�
-CSSѡ��������Щ����Щ���Կ��Լ̳У�
-CSSѡ�����idѡ����(#myid)����ѡ����(.myclassname)����ǩѡ����(div, h1, p)������ѡ����(h1 + p)����	ѡ������ul > li�������ѡ������li a����ͨ���ѡ������*��������ѡ������a[rel="external"]����α��ѡ������a:hover, li:nth-child��
-�ɼ̳е����ԣ�font-size, font-family, color
-���ɼ̳е���ʽ��border, padding, margin, width, height
-��֪���ߵ�div���в��֣�δ֪���ߵ�div���в���
-css����������
-�������������������
- li��li֮���п������Ŀհ׼����ʲôԭ������ģ���ʲô����취��
-�п�����л��ܵ��м�հף��س��ո񣩵ȵ�Ӱ�죬��Ϊ�ո�Ҳ�����ַ�,��Щ�հ�Ҳ�ᱻӦ����ʽ��ռ�ݿռ䣬���Ի��м�������ַ���С��Ϊ0����û�пո��ˡ�
-���������
-?���Խ�<li>����ȫ��д��һ��
-?����li��float��left
-?��ul����font-size��0���ȸ費֧�֣�������ʹ��letter-space��-3px
-CSS Sprites��css���飩
+css新特性
+ CSS3实现圆角（border-radius），阴影（box-shadow），对文字加特效（text-shadow、），线性渐变（gradient），旋转（transform），transform:rotate(9deg) scale(0.85,0.90) translate(0px,-30px) skew(-9deg,0deg);// 旋转,缩放,定位,倾斜，在CSS3中唯一引入的伪元素是 ::selection.媒体查询，多栏布局，border-image
+css盒模型
+CSS3中可以通过box-sizing 来指定盒模型，即可指定为content-box、border-box，这样我们计算盒子大小的方式就发生了改变。
+可以分成两种情况：
+1、box-sizing: border-box  计算方式为content = width – border - padding
+2、box-sizing: content-box  计算方式为content = width（默认）
+CSS选择器有哪些？哪些属性可以继承？
+CSS选择符：id选择器(#myid)、类选择器(.myclassname)、标签选择器(div, h1, p)、相邻选择器(h1 + p)、子	选择器（ul > li）、后代选择器（li a）、通配符选择器（*）、属性选择器（a[rel="external"]）、伪类选择器（a:hover, li:nth-child）
+可继承的属性：font-size, font-family, color
+不可继承的样式：border, padding, margin, width, height
+已知宽高的div居中布局，未知宽高的div居中布局
+css创建三角形
+常见的浏览器兼容问题
+ li与li之间有看不见的空白间隔是什么原因引起的？有什么解决办法？
+行框的排列会受到中间空白（回车空格）等的影响，因为空格也属于字符,这些空白也会被应用样式，占据空间，所以会有间隔，把字符大小设为0，就没有空格了。
+解决方法：
+?可以将<li>代码全部写在一排
+?浮动li中float：left
+?在ul中用font-size：0（谷歌不支持）；可以使用letter-space：-3px
+CSS Sprites（css精灵）
 3.js
-js������������Щ
-�ַ��������֡����������顢����Null��Undefined
-js��typeof�᷵����Щ����������
-"object"��"string"��"number"��"boolean"��"function"��"undefined"����
-ע��typeof(function(){})=="function"    var b=null;typeof(b)==��object����������
-���鷽��pop()?push()?unshift()?shift()
-js����ǿ��ת��
-Number(mix)��parseInt(string,radix)��parseFloat(string)��toString(radix)��String(mix)
+js数据类型有哪些
+字符串、数字、布尔、数组、对象、Null、Undefined
+js中typeof会返回哪些数据类型呢
+"object"、"string"、"number"、"boolean"、"function"、"undefined"六种
+注意typeof(function(){})=="function"    var b=null;typeof(b)==“object”！！！！
+数组方法pop()?push()?unshift()?shift()
+js类型强制转换
+Number(mix)、parseInt(string,radix)、parseFloat(string)、toString(radix)、String(mix)
 
 
 
-�м�����ʦ��
+中级工程师：
 1.js
-ES6�˽���٣�������˽⣩
-�鼶������
-ʲô�ǿ鼶��������ES5�����ʵ�ֿ鼶��������������IIFE��
-JS���������У�ȫ�������򡢺���������û�п�������ĸ��ECMAScript 6(���ES6)�������˿鼶������ ���������� { } ������if����for��������{ }Ҳ���ڿ�������
-ʲô��IIFE��Immediately Invoked Function Expression��������ִ�еĺ�������ʽ��
+ES6了解多少（如果有了解）
+块级作用域
+什么是块级作用域，在ES5中如何实现块级作用域（匿名函数IIFE）
+JS中作用域有：全局作用域、函数作用域。没有块作用域的概念。ECMAScript 6(简称ES6)中新增了块级作用域。 块作用域由 { } 包括，if语句和for语句里面的{ }也属于块作用域。
+什么是IIFE（Immediately Invoked Function Expression：声明即执行的函数表达式）
