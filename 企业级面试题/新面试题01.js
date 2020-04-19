@@ -27,7 +27,7 @@ console.log(i)
 
 //使用let
 
-//2.012345 分别隔离固定时间
+//2.012345 分别隔离固定时间显示
 for (var i = 0; i < 5; i++) {
   (function (j) {
     setTimeout(function () {
@@ -35,3 +35,22 @@ for (var i = 0; i < 5; i++) {
     }, 500 * j)
   })(i)
 }
+setTimeout(function () {
+  console.log(i)
+}, 500 * i)
+
+//promise 定义多个异步任务
+let tasks = []
+for (var i = 0; i < 5; i++) {
+  ((j) => {
+    tasks.push(new Promise((resolve) => {
+      setTimeout(function () {
+        console.log(j)
+        resolve()
+      }, 500 * j)
+    }))
+  })(i)
+}
+Promise.all(tasks).then(()=>{
+  console.log(i)
+})
