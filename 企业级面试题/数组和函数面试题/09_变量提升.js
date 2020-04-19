@@ -118,31 +118,17 @@ new Foo.getName(); //!3 //2
 new Foo().getName(); //3
 new new Foo().getName(); //!报错 //3
 
-
-//相当于
-var getName = undefined;
-function getName() {
-  console.log("5");
-}
-getName = function() {
-  console.log("4");
-};
-
-//!!!!做错
-var getName = function() {
-  console.log("4");
-};
-function getName(){
-  console.log("5");
-}
-getName() //4
-
+// ******真正的解析*********
 
 function Foo() {
   getName = function(){
       console.log("1");
   };
   return this;
+}
+// var getName;被下面的getName函数忽略掉
+function getName(){
+  console.log("5");
 }
 Foo.getName = function() {
   console.log("2");
@@ -152,17 +138,22 @@ Foo.prototype.getName = function(){
   console.log("3");
 };
 
-var getName = function() {
+getName = function() {
   console.log("4");
 };
-function getName(){
-  console.log("5");
-}
 
 Foo.getName();//2
 getName();//4
-Foo().getName();// 1
+Foo().getName(); // 1 //(Foo()).getName();执行了Foo()方法相当于执行了window.getName = functon(){console.log(1);}，全局getName变量被重写  return this;this就是window啊！，执行了window.getName(),那就是1啊！
 getName(); //1
-new Foo.getName(); //2
-new Foo().getName(); //1
-new new new Foo().getName(); //1
+new Foo.getName(); //2 //.的优先级大于new所以转化为 **new (Foo.getName)()** 接下来，就相当于new (function(){console.log(2)})()，new 一个函数时就会执行这个函数，并生成实例对象
+new Foo().getName(); //3 //.的优先级最高然后就转换成 (new Foo()).getName() --> foo.getName()(ps:foo是Foo的实例对象) -->找到Foo原型链中的方法 就是Foo.prototype.getName
+//这里就涉及到实例对象找方法了，默认是先从自身找，找不到的话，就从隐式原型里中找，就是__proto__,如果还没有就会找Object中的属性
+new new Foo().getName();//3 //new (new Foo()).getName() -->new ((new Foo()).getName)() -->new (foo.getName)()
+
+//考点: // 1.变量提升
+        // 2.this指向问题 
+        // 3.变量查找规则，如果函数中为定义变量，就找全局 
+        // 4.变量优先级,.的优先级最高，new Foo.getName()-->new (Foo.getName)() 
+        // 但是如果.遇到(), new Foo().getName()--> (new Foo()).getName() --> ((new Foo()).getName)()
+        // 5.实例属性的访问规则，隐式原型链__proto__
