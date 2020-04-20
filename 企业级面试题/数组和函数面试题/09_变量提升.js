@@ -85,29 +85,29 @@ function bar() {
   if (!foo) {
     var foo = 10;
   }
-  console.log(foo); 
+  console.log(foo);
 }
 bar()//10
 
 //!!!做错
 function Foo() {
-  getName = function(){
-      console.log("1");
+  getName = function () {
+    console.log("1");
   };
   return this;
 }
-Foo.getName = function() {
+Foo.getName = function () {
   console.log("2");
 };
 
-Foo.prototype.getName = function(){
+Foo.prototype.getName = function () {
   console.log("3");
 };
 
-var getName = function() {
+var getName = function () {
   console.log("4");
 };
-function getName(){
+function getName() {
   console.log("5");
 }
 Foo.getName();  //!3 //2
@@ -124,38 +124,38 @@ var getName = undefined;
 function getName() {
   console.log("5");
 }
-getName = function() {
+getName = function () {
   console.log("4");
 };
 
 //!!!!做错
-var getName = function() {
+var getName = function () {
   console.log("4");
 };
-function getName(){
+function getName() {
   console.log("5");
 }
 getName() //4
 
 
 function Foo() {
-  getName = function(){
-      console.log("1");
+  getName = function () {
+    console.log("1");
   };
   return this;
 }
-Foo.getName = function() {
+Foo.getName = function () {
   console.log("2");
 };
 
-Foo.prototype.getName = function(){
+Foo.prototype.getName = function () {
   console.log("3");
 };
 
-var getName = function() {
+var getName = function () {
   console.log("4");
 };
-function getName(){
+function getName() {
   console.log("5");
 }
 
@@ -166,3 +166,47 @@ getName(); //1
 new Foo.getName(); //2
 new Foo().getName(); //1
 new new new Foo().getName(); //1
+
+
+
+//新面试题4.17 值类型和引用类型传递
+var num1 = 55;
+var num2 = 66;
+function f1(num, num1) {
+  // let num = 55;
+  // let num1 = 66;
+  num = 100;
+  num1 = 100;
+  num2 = 100; //window.num2 = 100
+
+  console.log(num); //100
+  console.log(num1); //100
+  console.log(num2) //100
+}
+f1(num1, num2)
+console.log(num1); //55
+console.log(num2); //100
+console.log(num); //报错
+
+//面试2 !!!!!!!!!!!!!!!!!!!卧槽，重要的基础啊
+function Person(name, age, salary) {
+  this.name = name;
+  this.age = age;
+  this.salary = salary
+}
+function f1(person) {
+  //var person //首先在栈内存中创建了person这个变量
+  //person = p //传入的值p,就相当于把指针赋值给了person，此时person中存储的其实是指向堆内存的指针(例如地址为0x110)
+  person.name = 'ls'; //此时这个是将person指针指向的0x110堆内存中的实例的name值修改为‘ls’
+  person = new Person('aa', 19, 10); //这个相当于在堆内存中又添加了new Person('aa', 19, 10)实例，(例如地址为0x111)，此时是将person变量里面的指针从0x110改为0x111，对变量p指针无影响！！！！！
+  //因此p.name无变化
+}
+var p = new Person('zs', 18, 1000)
+console.log(p.name) //zs
+f1(p)
+console.log(p.name) //aa ??? ls
+
+//https://www.bilibili.com/video/BV1At41137DG?p=2
+//解析 首先需要理解，暂且讲内存分为栈内存（用于存储值类型变量，或引用变量指代的堆内存地址）和堆内存（引用变量真正的值所在位置！）
+// 1. var p = new Person('zs', 18, 1000)，相当于在栈内存中放置了变量p，和它指代的堆内存指针(例如地址为0x110),在堆内存中放置了new Person('zs',18,1000)这个实例,console.log(p.name)直接找栈内存对应的堆内存中的实例，输出‘zs’
+// 2. 看上面的案例
