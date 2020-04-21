@@ -1,13 +1,17 @@
 <template>
   <div>
     vue123
+    <Child1/>
   </div>
 </template>
 <script>
 import FunctionMsg from 'zyp_npmtest'
+import Child1 from './components/chile1.vue'
 export default {
   name: '',
-  components: {},
+  components: {
+    Child1
+  },
   directives: {},
   filters: {},
   mixins: [],
