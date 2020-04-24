@@ -1,9 +1,15 @@
 <template>
-  <div>子组件
+  <div>
+    <p>自定义指令</p>
     <input v-focus type="text" name="" id="">
     <div v-console>{{data1}}</div>
     <!-- <p v-color='red'>v-color</p> -->
+    <p>自定义指令，访问vm实例</p>
     <p v-fun='fun'>v-fun</p>
+    <hr>
+    <p>自定义过滤器</p>
+    <h5>{{name|filter1|filter2}}</h5>
+    <hr>
   </div>
 </template>
 <script>
@@ -52,8 +58,9 @@ export default {
       }
     },
     fun: {
-      bind: function (el, binding) {//被绑定
+      bind: function (el, binding, vnode) {//被绑定
         console.log('1 - bind');
+        console.log('vm实例直接是bing第三个参数中的vndoe.context', vnode.context);
         let _this = binding.value()
         _this.data1 = 'v-fun 改变了data1'
       },
@@ -71,13 +78,22 @@ export default {
       }
     }
   },
-  filters: {},
+  filters: {
+    filter1(val) {
+      console.log('自定义指令函数中的this', this) //undefined
+      return val + '--1'
+    },
+    filter2(val) {
+      return val + '--2'
+    }
+  },
   mixins: [],
   props: [],
   data() {
     return {
       data1: 'v-console',
-      red: 'red'
+      red: 'red',
+      name: 'zhaoyp'
     }
   },
   computed: {},
@@ -92,5 +108,5 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style scoped>
 </style>
