@@ -2,15 +2,18 @@
   <div>
     vue123
     <Child1/>
+    <Child2/>
   </div>
 </template>
 <script>
 import FunctionMsg from 'zyp_npmtest'
 import Child1 from './components/chile1.vue'
+import Child2 from './components/extend.vue'
 export default {
   name: '',
   components: {
-    Child1
+    Child1,
+    Child2
   },
   directives: {},
   filters: {},
