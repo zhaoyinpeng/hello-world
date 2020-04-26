@@ -130,6 +130,29 @@ add(1, 2, 3)(4)             // 10
 add(1)(2)(3)(4)(5)          // 15
 add(2, 6)(1)                // 9
 
+
+function add() {
+  // var args = Array.from(arguments);
+  // var args = [...arguments];
+  var _args = Array.prototype.slice.call(arguments);
+  var _adder = function(){
+    var args = Array.prototype.slice.call(arguments);
+    console.log(args)
+    _args = _args.concat(args)
+    return _adder
+    // _args.push(...arguments);
+    // console.log(...arguments)
+    // return _adder;
+  }
+  _adder.toString = function(){
+    console.log('toString方法')
+    return _args.reduce(function (a, b) {
+      return a + b;
+    });
+  }
+  return _adder
+}
+
 //柯里化又称部分求值，一个柯里化的函数首先会接受一些传参，接受了这些传参之后，函数并不会立即求值，而是继续返回另外一个函数，刚才传入的参数在函数内形成的闭包中被保存起来，到参数被真正求值的时候，之前传入的参数会被一次性用于求值。
 function func(str) {
   var ret = Array.prototype.slice.call(arguments).join(', ');

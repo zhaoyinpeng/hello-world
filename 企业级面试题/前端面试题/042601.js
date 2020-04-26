@@ -57,3 +57,22 @@ show();
 //5.(function(){alert(1);})(); //自执行
 //6.当然还有其他创建函数或执行函数的方法，这里不再多说，比如采用 eval ， setTimeout ， setInterval 等非常用方法，这里不做过多介绍，属于非标准方法，这里不做过多展开
 
+//5. ================输出下面的运行结果====================
+//example 1
+var a = {}, b = '123', c = 123
+a[b] = 'b';
+a[c] = 'c'
+console.log(a[b]) //c //因为a["123"] <=> a[123] a[c]把a[b]覆盖了
+//example 2
+var a = {}, b = Symbol('123'), c = Symbol('123')
+a[b] = 'b';
+a[c] = 'c'
+console.log(a[b]) //b //Symbol是新增的数据类型 它的值是惟一的
+//example 3 //!!
+var a = {}, b = { key: '123' }, c = { key: '456' }
+a[b] = 'b';
+a[c] = 'c'
+console.log(a[b]) //c 
+//**对象的属性名不能是对象，遇到对象属性名，会默认转化为字符串**
+//普通对象的toString()就是原型链上的toString() 会返回[object Object]
+
