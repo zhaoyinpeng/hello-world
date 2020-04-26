@@ -93,6 +93,7 @@ var on = function (isSupport, element, event, handler) {
 //3.===============延迟运行===================
 Function.prototype.bind = function (context) {
   var _this = this
+  //默认会保存后面的参数
   var args = Array.prototype.slice.call(arguments, 1)
 
   return function () {
