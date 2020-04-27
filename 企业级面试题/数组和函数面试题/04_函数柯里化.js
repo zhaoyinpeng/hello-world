@@ -1,4 +1,5 @@
 //函数柯里化（curry）
+//维基百科上说道：柯里化，英语：Currying(果然是满满的英译中的既视感)，是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。
 function fun(a, b, c, d) {
   return a + b + c + d
 }
@@ -92,6 +93,7 @@ var on = function (isSupport, element, event, handler) {
 //3.===============延迟运行===================
 Function.prototype.bind = function (context) {
   var _this = this
+  //默认会保存后面的参数
   var args = Array.prototype.slice.call(arguments, 1)
 
   return function () {
@@ -167,3 +169,29 @@ function func(str) {
 }
 var tempFunc = func("antzone")("softwhy")("com");
 console.log(tempFunc.toStr());
+
+
+//bind源码
+if (!Function.prototype.bind) {
+  Function.prototype.bind = function (oThis) {
+    if (typeof this !== "function") {
+      throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
+    }
+
+    var aArgs = Array.prototype.slice.call(arguments, 1), 
+        fToBind = this, 
+        fNOP = function () {},
+        fBound = function () {
+          // 当通过new方法调用时，this就是fNOP的一个实例  
+          return fToBind.apply(this instanceof fNOP
+                                 ? this
+                                 : oThis || this,
+                               aArgs.concat(Array.prototype.slice.call(arguments)));
+        };
+
+    fNOP.prototype = this.prototype;
+    fBound.prototype = new fNOP();
+
+    return fBound;
+  };
+}
