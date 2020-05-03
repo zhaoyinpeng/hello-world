@@ -37,3 +37,19 @@ let m = sum2(2, 2).then(resolve => {
 }).then(resolve => {
   console.log(resolve)
 })
+
+//1.promise是异步编程的一种解决方案。
+//2.解决的问题是回调地狱。
+//3.
+var b = function(){
+	return new Promise(function(res){
+		setTimeout((a)=>{res(a)},3000,6)
+	})
+}
+b().then(res=>console.log(res))
+
+
+let c = function(){
+  console.log('执行')
+}
+setTimeout(c,3000)

@@ -10,7 +10,7 @@
  */
 // 二.用法
 //1.类数组对象 转换成数组！
-const someNumbers = { '0': 10, '1': 15, length: 2 };//注意这里的length属性！！！
+const someNumbers = { '0': 10, '1': 15, length: 3 };//注意这里的length属性！！！
 Array.from(someNumbers, value => value * 2); // => [20, 30]
 Array.from('Hey');                   // => ['H', 'e', 'y']
 Array.from(new Set(['one', 'two'])); // => ['one', 'two']
