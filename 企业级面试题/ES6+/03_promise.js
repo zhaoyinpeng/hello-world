@@ -40,16 +40,21 @@ let m = sum2(2, 2).then(resolve => {
 
 //1.promise是异步编程的一种解决方案。
 //2.解决的问题是回调地狱。
-//3.
-var b = function(){
-	return new Promise(function(res){
-		setTimeout((a)=>{res(a)},3000,6)
-	})
-}
-b().then(res=>console.log(res))
-
-
-let c = function(){
-  console.log('执行')
-}
-setTimeout(c,3000)
+//3.主要方法
+// promise.resolve ,参数有四种，
+// (1).空值，返回resolve状态的Promise实例
+// (2).Promise,返回Promse
+// (3).非Thenable对象（对象带有then方法），直接返回值
+// (4).Thenable对象，返回执行then方法后的值
+var thenable = {
+  then: function (resolve, reject) {
+    // resolve(42);
+    setTimeout(()=>{
+      resolve(41);
+    },3000)
+  }
+};
+var p1 = Promise.resolve(thenable);
+p1.then(function (value) {
+  console.log(value); // 42
+});
