@@ -12,3 +12,5 @@ async function main() {
   console.log(m)
 }
 main()
+
+//与Generator函数十分类似，就是生成器函数的语法糖
