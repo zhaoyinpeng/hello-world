@@ -40,7 +40,7 @@ let m = sum2(2, 2).then(resolve => {
 
 //1.promise是异步编程的一种解决方案。
 //2.解决的问题是回调地狱。
-// promise有三种状态：pending/reslove/reject 。pending就是未决，resolve可以理解为成功，reject可以理解为拒绝。
+// promise有三种状态：pending/reslove/reject 。pending就是未决，resolve可以理解为成功，reject可以理解为拒绝。状态一旦改变，就不会再改成其他状态。
 //3.主要方法
 // promise.resolve ,参数有四种，
 // (1).空值，返回resolve状态的Promise实例
@@ -59,3 +59,9 @@ var p1 = Promise.resolve(thenable);
 p1.then(function (value) {
   console.log(value); // 42
 });
+// https://www.jianshu.com/p/d8a901dd72ac
+//=========promise.all
+//=========promise.race
+//=========promise.finall
+//=========promise.reject 返回状态为reject的promise实例
+//=========promise.try
