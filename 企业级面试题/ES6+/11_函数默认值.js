@@ -27,7 +27,7 @@
 //默认参数 !!!!!!!!!!!!!!!!!!!!!!!有了默认参数时，a,b变了不会对arguments造成影响，这里的arguments跟传入的参数数量有关
 function fun(a, b = 4) {
   // 'use strict'; //报错不能用
-  console.log(arguments.length)
+  console.log(arguments.length) //1
   console.log(a === arguments[0]) //true
   console.log(b === arguments[1]) //false
   a = 123;

@@ -1,4 +1,4 @@
-//1.高阶函数 生成函数的函数 作用预置变量
+//1.高阶函数 生成函数的函数 作用预置变量，promise.all的实现原理
 function after(times, cb) {
   return function () {
     if (--times === 0) {
