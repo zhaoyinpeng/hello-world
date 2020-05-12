@@ -11,8 +11,10 @@ function readFile(url) {
   })
 }
 async function main(){
+  console.log('异步函数前')
   let str = await readFile()
   console.log(str)
+  console.log('异步函数后')
 }
 main()
 console.log(345)
