@@ -13,7 +13,7 @@ async function main(time = 2000) {
 main()
 
 //与Generator函数十分类似，就是生成器函数的语法糖
-
+ 
 
 //1.await函数会返回一个promise对象
 async function fun1() {
@@ -65,6 +65,7 @@ async function fun4() {
 }
 fun4()
 //5.多个请求
+//https://www.cnblogs.com/JRliu/p/9004304.html
 async function main5(a, b, time = 2000) {
   const m = await sum2(a, b, time).then(data => data)
   return await m
@@ -72,7 +73,7 @@ async function main5(a, b, time = 2000) {
 const fun5_1 = async () => {
   //串行====时间为4000ms以上
   console.time('fun5_1')
-  let a1 = await main5(1, 1, 2000)
+  let a1 = await main5(1, 1, 2000) //这里遇到了await就开始执行异步了，后面的代码都会延后执行，所以是串行
   let a2 = await main5(1, 2, 2000)
   console.log('fun5_1', a1)
   console.log('fun5_1', a2)
@@ -82,7 +83,7 @@ const fun5_1 = async () => {
 const fun5_2 = async () => {
   //并行====时间为3000ms以上
   console.time('fun5_2')
-  let p1 = main5(1, 1, 3000)
+  let p1 = main5(1, 1, 3000) //这里先生成所有 promise 实例
   let p2 = main5(1, 2, 1000)
   let r1 = await p1
   let r2 = await p2
